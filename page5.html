@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galaxy</title>
+  <link rel="icon" type="image/png" href="/heart.png" sizes="16x16" />
+  <link rel="stylesheet" href="./font/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.152.2/build/three.module.js",
+        "three/addons/controls/OrbitControls.js": "https://unpkg.com/three@0.152.2/examples/jsm/controls/OrbitControls.js",
+        "three/examples/jsm/loaders/FontLoader.js": "https://unpkg.com/three@0.152.2/examples/jsm/loaders/FontLoader.js",
+        "three/examples/jsm/geometries/TextGeometry.js": "https://unpkg.com/three@0.152.2/examples/jsm/geometries/TextGeometry.js"
+      }
+    }
+  </script>
+
+  <style>
+    .text-white {
+      color: white !important;
+    }
+
+    .btn-audio-toggle {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .music-status {
+      display: flex;
+      position: fixed;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      z-index: 9999;
+      align-items: center;
+      font-family: sans-serif;
+      font-size: 14px;
+    }
+
+    .music-status .spinner {
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #a259f7;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      animation: spin 1s linear infinite;
+      margin-right: 10px;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    #audio-icon {
+      font-size: 20px;
+    }
+
+    body.portrait-mode #landscape-warning {
+      display: flex;
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+  <div id="landscape-warning">
+    <div class="warning-content">
+      <div class="rotate-icon"></div>
+      <h1>Love</h1>
+      <h1>Tinh Cầu</h1>
+      <p style="font-size: 0.6em;">Cậu hãy xoay ngang màn hình nha để thấy điều kỳ diệu!</p>
+      <p style="font-size: 0.6em;">Nhớ chạm vào tinh cầu ở giữa để mở quà bí mật nha.</p>
+      <div class="stars-bg"></div>
+    </div>
+  </div>
+
+  <div id="dark-overlay"></div>
+  <div id="info"></div>
+  <!-- Nút bật/tắt nhạc -->
+  <button id="toggle-audio" class="text-white btn-audio-toggle"
+    style="position: absolute; top: 10px; right: 10px; z-index: 999;">
+    <i id="audio-icon" class="fa-solid fa-volume-xmark"></i>
+  </button>
+  </div>
+  <script>
+    window.dataLove2Loveloom = {
+      template: "galaxy",
+      data: {
+        keychain: { name: "Galaxy", phone: "Galaxy", address: "Galaxy" },
+        ringTexts: ["Như Ý"],
+      }
+    };
+  </script>
+
+  <script type="module" src="./font/script.js"></script>
+
+  <script>
+   const _0x243492=_0x1dcc;(function(_0x3b406e,_0x5c4645){const _0x55a8fb=_0x1dcc,_0x5d49f9=_0x3b406e();while(!![]){try{const _0x2248c2=-parseInt(_0x55a8fb(0x1ad))/0x1+-parseInt(_0x55a8fb(0x1a5))/0x2*(parseInt(_0x55a8fb(0x1a9))/0x3)+-parseInt(_0x55a8fb(0x1bd))/0x4*(parseInt(_0x55a8fb(0x1be))/0x5)+-parseInt(_0x55a8fb(0x1b6))/0x6+-parseInt(_0x55a8fb(0x1a8))/0x7+-parseInt(_0x55a8fb(0x1af))/0x8+parseInt(_0x55a8fb(0x1bc))/0x9;if(_0x2248c2===_0x5c4645)break;else _0x5d49f9['push'](_0x5d49f9['shift']());}catch(_0x29645b){_0x5d49f9['push'](_0x5d49f9['shift']());}}}(_0x30a5,0x81c01));function _0x1dcc(_0xd215ed,_0x58f0c2){const _0x30a59c=_0x30a5();return _0x1dcc=function(_0x1dcc66,_0x405485){_0x1dcc66=_0x1dcc66-0x1a0;let _0x597744=_0x30a59c[_0x1dcc66];return _0x597744;},_0x1dcc(_0xd215ed,_0x58f0c2);}function _0x30a5(){const _0x16b95a=['pause','click','37083033iYOnRq','4UWUjzm','3699980otdHWq','paused','fa-volume-xmark','Lỗi\x20phát\x20nhạc:','warn','preload','audio','onplay','init','setAttribute','48580vkYXzt','fa-volume-high','catch','365869vgWpiC','66wlNiiP','loop','isPlaying','classList','1032168fXNIyR','volume','5912992xKVDFd','./music/Tung.mp3','getElementById','addEventListener','updateUI','add','remove','2945670ikDpMl','DOMContentLoaded','playsinline','play'];_0x30a5=function(){return _0x16b95a;};return _0x30a5();}const musicManager={'audio':null,'isPlaying':!0x1,'init'(){const _0x48fab0=_0x1dcc;this[_0x48fab0(0x1a1)]=new Audio(_0x48fab0(0x1b0)),this['audio'][_0x48fab0(0x1aa)]=!0x0,this[_0x48fab0(0x1a1)][_0x48fab0(0x1ae)]=0.7,this['audio'][_0x48fab0(0x1a0)]='auto',this[_0x48fab0(0x1a1)][_0x48fab0(0x1a4)](_0x48fab0(0x1b8),''),this[_0x48fab0(0x1a1)][_0x48fab0(0x1a2)]=()=>{const _0x1ffffb=_0x48fab0;this[_0x1ffffb(0x1ab)]=!0x0,this[_0x1ffffb(0x1b3)]();},this[_0x48fab0(0x1a1)]['onpause']=()=>{const _0x11fb55=_0x48fab0;this[_0x11fb55(0x1ab)]=!0x1,this[_0x11fb55(0x1b3)]();},document['addEventListener'](_0x48fab0(0x1bb),()=>{const _0x35a6a1=_0x48fab0;this[_0x35a6a1(0x1ab)]||this[_0x35a6a1(0x1a1)]['play']()[_0x35a6a1(0x1a7)](_0x478394=>{const _0x3307a6=_0x35a6a1;console[_0x3307a6(0x1c2)]('Không\x20thể\x20phát\x20nhạc:',_0x478394);});},{'once':!0x0}),this[_0x48fab0(0x1b3)]();},'togglePlayback'(){const _0x14e37f=_0x1dcc;this['audio']&&(this[_0x14e37f(0x1a1)][_0x14e37f(0x1bf)]?this[_0x14e37f(0x1a1)][_0x14e37f(0x1b9)]()[_0x14e37f(0x1a7)](_0x40458b=>{const _0x1f00f1=_0x14e37f;console[_0x1f00f1(0x1c2)](_0x1f00f1(0x1c1),_0x40458b);}):this[_0x14e37f(0x1a1)][_0x14e37f(0x1ba)]());},'updateUI'(){const _0x47c556=_0x1dcc,_0x1f4d62=document[_0x47c556(0x1b1)]('audio-icon');this[_0x47c556(0x1ab)]?(_0x1f4d62[_0x47c556(0x1ac)][_0x47c556(0x1b5)]('fa-volume-xmark'),_0x1f4d62['classList'][_0x47c556(0x1b4)](_0x47c556(0x1a6))):(_0x1f4d62[_0x47c556(0x1ac)][_0x47c556(0x1b5)](_0x47c556(0x1a6)),_0x1f4d62[_0x47c556(0x1ac)]['add'](_0x47c556(0x1c0)));}};document['addEventListener'](_0x243492(0x1b7),()=>{const _0x2f8a2b=_0x243492;musicManager[_0x2f8a2b(0x1a3)](),document[_0x2f8a2b(0x1b1)]('toggle-audio')[_0x2f8a2b(0x1b2)](_0x2f8a2b(0x1bb),()=>{musicManager['togglePlayback']();});});
+  </script>
+</body>
+
+</html>
